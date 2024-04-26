@@ -46,11 +46,11 @@ body {
   }
   
   .order-form-container button {
-    background-color: #f5f5f5;
+    background-color: #222121;
     border: none;
     cursor: pointer;
   }
   
   .order-form-container button:hover {
-    background-color: #e0e0e0;
+    background-color: #504c4c;
   }
