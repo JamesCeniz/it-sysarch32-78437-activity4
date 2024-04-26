@@ -20,7 +20,7 @@ function DataDisplay() {
   return (
     <div>
       <h2>Products</h2>
-      <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+      <table style={{ borderCollapse: 'collapse', width: '100%'}}>
         <thead>
           <tr>
             <th style={{ border: '1px solid black', padding: '8px' }}>Image</th>

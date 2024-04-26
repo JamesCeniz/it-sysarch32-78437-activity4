@@ -33,10 +33,6 @@ function Dashboard() {
         <DataDisplay />
         <CreateProduct />
       </div>
-      <div className="dashboard-links">
-        <h1>ORDERS</h1>
-        <button onClick={handleViewOrders}>View Orders</button>
-      </div>
     </div>
   );
 }

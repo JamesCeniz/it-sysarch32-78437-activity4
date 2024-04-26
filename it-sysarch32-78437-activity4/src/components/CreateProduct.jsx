@@ -40,7 +40,7 @@ const CreateProduct = () => {
 
   return (
     <div className="create-product-container">
-      <div className="card">
+      <div className="card-product">
         <h2>Add Product</h2>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
         <form onSubmit={handleSubmit}>

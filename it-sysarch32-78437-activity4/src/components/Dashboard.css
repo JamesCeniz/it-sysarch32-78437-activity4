@@ -1,4 +1,6 @@
-
+.dashboard-container {
+  padding: 40px; 
+}
   
   .dashboard-links {
     display: flex;
