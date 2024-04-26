@@ -4,11 +4,13 @@ import SignUp from './components/SignUp';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import OrderList from './components/OrderList';
+import Navbar from './components/Navbar'; // Import the Navbar component
 
 function App() {
   return (
     <Router>
       <div>
+        <Navbar /> {/* Add the Navbar component */}
         <Routes>
           <Route
             path="/signup"

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './OrderForm.css'; // Import the CSS file for styles
 
 function OrderForm({ onOrderCreated }) {
   const [productId, setProductId] = useState('');
@@ -28,25 +29,31 @@ function OrderForm({ onOrderCreated }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Create Order</h2>
-      <input
-        type="text"
-        value={productId}
-        onChange={(e) => setProductId(e.target.value)}
-        placeholder="Product ID"
-        required
-      />
-      <input
-        type="number"
-        value={quantity}
-        onChange={(e) => setQuantity(e.target.value)}
-        placeholder="Quantity"
-        min="1"
-        required
-      />
-      <button type="submit">Create Order</button>
-    </form>
+    <div className="card-container">
+      <div className="card">
+        <div className="order-form-container">
+          <form onSubmit={handleSubmit}>
+            <h2>Create Order</h2>
+            <input
+              type="text"
+              value={productId}
+              onChange={(e) => setProductId(e.target.value)}
+              placeholder="Product ID"
+              required
+            />
+            <input
+              type="number"
+              value={quantity}
+              onChange={(e) => setQuantity(e.target.value)}
+              placeholder="Quantity"
+              min="1"
+              required
+            />
+            <button type="submit">Create Order</button>
+          </form>
+        </div>
+      </div>
+    </div>
   );
 }
 

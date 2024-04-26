@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './CreateProduct.css'; // Import the CSS file for styles
 
 const CreateProduct = () => {
   const [name, setName] = useState('');
@@ -38,38 +39,40 @@ const CreateProduct = () => {
   };
 
   return (
-    <div>
-      <h2>Add Product</h2>
-      {errorMessage && <p>{errorMessage}</p>}
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Name:</label>
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Price:</label>
-          <input
-            type="number"
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Image:</label>
-          <input
-            type="file"
-            onChange={(e) => setImage(e.target.files[0])}
-            required
-          />
-        </div>
-        <button type="submit">Add Product</button>
-      </form>
+    <div className="create-product-container">
+      <div className="card">
+        <h2>Add Product</h2>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label>Name: </label>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label>Price: </label>
+            <input
+              type="number"
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label>Image:</label>
+            <input
+              type="file"
+              onChange={(e) => setImage(e.target.files[0])}
+              required
+            />
+          </div>
+          <button type="submit">Add Product</button>
+        </form>
+      </div>
     </div>
   );
 };
