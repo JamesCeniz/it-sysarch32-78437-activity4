@@ -1,23 +1,26 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-function OrderForm() {
+function OrderForm({ onOrderCreated }) {
   const [productId, setProductId] = useState('');
   const [quantity, setQuantity] = useState(1);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3000/orders', 
+      const token = localStorage.getItem('token');
+      const response = await axios.post(
+        'http://localhost:3000/orders',
         { productId, quantity },
         {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
+            Authorization: `Bearer ${token}`,
           },
         }
       );
       console.log('Order created', response.data);
       alert('Order created successfully!');
+      onOrderCreated(); // Trigger the update of the order list
     } catch (error) {
       console.error('Create order error', error.response.data);
       alert('Failed to create order');

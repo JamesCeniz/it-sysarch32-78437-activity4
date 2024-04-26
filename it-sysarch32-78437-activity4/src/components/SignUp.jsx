@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 function SignUp() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -12,10 +17,19 @@ function SignUp() {
       console.log('Signup success', response.data);
       // You can store the token in localStorage and use it for subsequent requests
       localStorage.setItem('token', response.data.token);
+      // Show toast notification
+      toast.success('Sign up successful!', { autoClose: 3000 });
+      navigate('/login');
     } catch (error) {
       console.error('Signup error', error.response.data);
+  
+      if (error.response.data.error === 'email_taken') {
+        toast.error('Email is already registered. Please use a different email address.', { autoClose: 3000 });
+      } else {
+        toast.error('Sign up failed. Please try again.', { autoClose: 3000 });
+      }
     }
-  };
+  }
 
   return (
     <form onSubmit={handleSubmit}>
@@ -25,6 +39,7 @@ function SignUp() {
         onChange={(e) => setEmail(e.target.value)}
         placeholder="Email"
         required
+        className="input-field"
       />
       <input
         type="password"
@@ -32,6 +47,7 @@ function SignUp() {
         onChange={(e) => setPassword(e.target.value)}
         placeholder="Password"
         required
+        className="input-field"
       />
       <button type="submit">Sign Up</button>
     </form>

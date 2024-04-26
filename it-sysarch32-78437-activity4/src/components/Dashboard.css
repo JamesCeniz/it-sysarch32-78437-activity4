@@ -1,0 +1,20 @@
+
+  
+  .dashboard-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 200vh;
+    text-align: center;
+  }
+  
+  .h1 {
+    font-size: 2em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
+    cursor: pointer;
+    transition: border-color 0.25s;
+  }
