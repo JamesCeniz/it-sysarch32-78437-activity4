@@ -25,23 +25,21 @@ function Login() {
         }
       );
 
-      // Get the token from the response
+
       const token = response.data.token;
 
-      // Store the token in localStorage
       localStorage.setItem('token', token);
 
-      // Set the authorization header for future requests
+
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
-      // Show toast notification
       alert('Logged in successfully!', { autoClose: 3000 });
 
-      // Navigate to dashboard
+    
       navigate('/dashboard');
     } catch (error) {
       console.error(error.response ? error.response.data : error);
-      // Show toast notification for login error
+  
       toast.error('Failed to log in. Please try again.', { autoClose: 3000 });
     }
   };

@@ -15,9 +15,9 @@ function SignUp() {
     try {
       const response = await axios.post('http://localhost:3000/user/signup', { email, password });
       console.log('Signup success', response.data);
-      // You can store the token in localStorage and use it for subsequent requests
+      
       localStorage.setItem('token', response.data.token);
-      // Show toast notification
+
       toast.success('Sign up successful!', { autoClose: 3000 });
       navigate('/login');
     } catch (error) {
